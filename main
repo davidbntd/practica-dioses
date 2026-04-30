@@ -1,0 +1,127 @@
+#include <stdio.h>
+#include "arbol.h"
+#include "elemento.h"
+
+int main(void) {
+    tarbol vacio;
+    int opcion;
+    arbolvacio(&vacio);
+        tarbol  Raiz, izquierda,derecha ;
+        telemento nombre, padre,hijo;
+
+    //dedalo
+
+    printf("introduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&derecha, vacio,vacio,nombre);
+
+    //atenea
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&Raiz, vacio,derecha,nombre);
+
+    //orfeo
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&izquierda, vacio,vacio,nombre);
+
+    //aristeo
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&derecha, vacio,vacio,nombre);
+
+    //apolo
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&derecha, izquierda,derecha,nombre);
+
+    //Zeus
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&Raiz, Raiz,derecha,nombre);
+
+    //hefeso
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&izquierda, vacio,vacio,nombre);
+
+    //ares
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&derecha, vacio,vacio,nombre);
+
+    //hera
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&derecha, izquierda,derecha,nombre);
+
+    //cronos
+
+    printf("\nintroduzca un nombre");
+    fgets(nombre,100,stdin);
+    fflush(stdin);
+    construir (&Raiz, Raiz,derecha,nombre);
+
+    do {
+        printf("\n------MENU------\n");
+        printf("1. Mirar si existe el dios\n");
+        printf("2. Es padre el primer dios del segundo\n");
+        printf("3. Imprimir arbol\n");
+        printf("4. Salir\n");
+        printf("Ingrese una opcion:\n");
+        scanf("%d",&opcion);
+        getchar();
+
+        switch (opcion) {
+            case 1:
+                int encontrado;
+                printf("Ingrese en nombre de un Dios:\n");
+                fgets(nombre,50,stdin);
+
+                encontrado =existe (Raiz,nombre);
+                if (encontrado){printf("El Dios esta en el arbol");}
+                else printf("El Dios no esta");
+                break;
+            case 2:
+                int espadre;
+                printf("Ingrese en nombre del padre:\n");
+                fgets(padre,50,stdin);
+                printf("Ingrese en nombre del hijo:\n");
+                fgets(hijo,50,stdin);
+               espadre= padreomadre(Raiz,padre,hijo);
+                if (espadre){printf("%s es padre de %s", padre,hijo);}
+                else printf("No hay concidencia familiar");
+
+                break;
+            case 3:
+               imprimirpreorden(Raiz);
+                break;
+
+            case 4:
+                printf("Salir\n");
+                break;
+            default:
+                printf("Opcion invalida\n");
+        }
+    }while(opcion!=4);
+
+    return 0;
+
+}
